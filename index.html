@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  </head>
+  <body >
+    <header>
+  		<nav class="navbar navbar-default">
+  			<div class="container">
+  				<div class="navbar-header">
+  					<a class="navbar-brand" href="#">AngularJS Weather App</a>
+  				</div>
+  				<div class="nav navbar-nav navbar-right">
+  					<li><a href="#/home"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#/about"><i class="fa fa-home"></i>About</a></li>
+            <li><a href="#/contact"><i class="fa fa-home"></i>Contact</a></li>
+  				</div>
+  			</div>
+  		</nav>
+  	</header>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+      <div class="container" ng-controller="HomeController">
+        <ul ng-repeat="contact in contacts|orderBy:order:reverseSort">
+          <li>{{contact.name}}-{{contact.city}}</li>
+
+        </ul>
+        <button type="button" class="btn btn-primary" ng-click="order='name';reverseSort=!reverseSort">order by name </button>
+        <button type="button" class="btn btn-primary">orderby city </button>
+
+      </div>
+      <div class="">
+        <input type="text"  value="" ng-model="name">
+        {{name}}
+
+      </div>
+
+    <!--<div ng-controller="HomeController">{{message}}</div>-->
+
+    <script src="https://code.angularjs.org/1.6.1/angular.js"></script>
+
+    <script src ="angular.js"></script>
+
+    <script src="https://code.angularjs.org/1.6.1/angular-route.js">
+    </script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
